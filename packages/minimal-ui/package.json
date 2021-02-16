@@ -1,0 +1,69 @@
+{
+  "name": "@minimalui/core",
+  "version": "0.0.3",
+  "private": false,
+  "author": "Minimal-UI Team",
+  "description": "Don't reinvent the wheel. Create beautiful React Native apps by using Minimal UI, a set of usable components for all your basic needs. Extends the existing ones, create your own theme and build new modern apps.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "react-native",
+    "expo",
+    "minimal",
+    "ui",
+    "design"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/minimal-ui/minimal-ui.git",
+    "directory": "packages/minimal-ui"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/minimal-ui/minimal-ui/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc",
+    "release": "yarn build && yarn version && yarn publish"
+  },
+  "dependencies": {
+    "color": "^3.1.3"
+  },
+  "peerDependencies": {
+    "expo-linear-gradient": "^9.0.0",
+    "react": "^17.0.1",
+    "react-native": "^0.63.4"
+  },
+  "devDependencies": {
+    "@types/color": "^3.0.1",
+    "@types/react": "~16.9.35",
+    "@types/react-dom": "~16.9.8",
+    "@types/react-native": "~0.63.2",
+    "@typescript-eslint/eslint-plugin": "^4.15.0",
+    "@typescript-eslint/parser": "^4.15.0",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "husky": ">=4",
+    "lint-staged": ">=10",
+    "prettier": "^2.2.1",
+    "typescript": "~4.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsc && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint --fix"
+  }
+}
