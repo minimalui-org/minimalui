@@ -3,12 +3,14 @@ import {
   Dimensions,
   Modal as LegacyModal,
   ModalProps as LegacyModalProps,
+  Platform,
   StyleProp,
   TouchableWithoutFeedback,
   View,
   ViewStyle,
 } from "react-native";
 
+import Portal from "./Portal/Portal";
 import useTheme from "./useTheme";
 
 export type ModalProps = LegacyModalProps & {
@@ -35,6 +37,23 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
   }, [visible]);
 
   const theme = useTheme();
+
+  /**
+   * React Native for Web polyfill
+   */
+  const modalStyle: StyleProp<ViewStyle> = [
+    Platform.OS === "web" && {
+      backgroundColor: "red",
+      // borderWidth: 0,
+      // bottom: 0,
+      // display: open ? undefined : "none",
+      // flex: 1,
+      // left: 0,
+      // position: "absolute",
+      // right: 0,
+      // top: 0,
+    },
+  ];
 
   const overlayStyle: StyleProp<ViewStyle> = [
     {
@@ -80,8 +99,14 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
   };
 
   return (
-    <>
-      <LegacyModal animationType="fade" transparent visible={open} {...props}>
+    <Portal>
+      <LegacyModal
+        animationType="fade"
+        style={modalStyle}
+        transparent
+        visible={open}
+        {...props}
+      >
         <TouchableWithoutFeedback onPress={onClose}>
           <View style={overlayStyle}>
             <TouchableWithoutFeedback onPress={() => null}>
@@ -90,6 +115,6 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
           </View>
         </TouchableWithoutFeedback>
       </LegacyModal>
-    </>
+    </Portal>
   );
 };

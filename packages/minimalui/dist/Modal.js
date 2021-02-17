@@ -25,6 +25,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Modal = void 0;
 var React = require("react");
 var react_native_1 = require("react-native");
+var Portal_1 = require("./Portal/Portal");
 var useTheme_1 = require("./useTheme");
 exports.Modal = function (_a) {
     var children = _a.children, onClose = _a.onClose, _b = _a.variant, variant = _b === void 0 ? "default" : _b, visible = _a.visible, style = _a.style, props = __rest(_a, ["children", "onClose", "variant", "visible", "style"]);
@@ -38,6 +39,14 @@ exports.Modal = function (_a) {
         }
     }, [visible]);
     var theme = useTheme_1.default();
+    /**
+     * React Native for Web polyfill
+     */
+    var modalStyle = [
+        react_native_1.Platform.OS === "web" && {
+            backgroundColor: "red",
+        },
+    ];
     var overlayStyle = [
         {
             backgroundColor: "rgba(0,0,0,0.7)",
@@ -76,8 +85,8 @@ exports.Modal = function (_a) {
             translateY: translateY,
         },
     };
-    return (React.createElement(React.Fragment, null,
-        React.createElement(react_native_1.Modal, __assign({ animationType: "fade", transparent: true, visible: open }, props),
+    return (React.createElement(Portal_1.default, null,
+        React.createElement(react_native_1.Modal, __assign({ animationType: "fade", style: modalStyle, transparent: true, visible: open }, props),
             React.createElement(react_native_1.TouchableWithoutFeedback, { onPress: onClose },
                 React.createElement(react_native_1.View, { style: overlayStyle },
                     React.createElement(react_native_1.TouchableWithoutFeedback, { onPress: function () { return null; } },

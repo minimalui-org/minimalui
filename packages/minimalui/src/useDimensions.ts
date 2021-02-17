@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import { Dimensions, ScaledSize } from "react-native";
 
-import { Breakpoint, useTheme } from "./useTheme";
+import { Breakpoint } from "./createTheme";
+import { useTheme } from "./useTheme";
 
 type UseDimensions = (
-  dim?: "window" | "screen",
+  dim?: "window" | "screen"
 ) => { height: number; type: Breakpoint; width: number };
 
 export const useDimensions: UseDimensions = (dim = "window") => {
@@ -16,7 +17,7 @@ export const useDimensions: UseDimensions = (dim = "window") => {
       Object.entries(theme.breakpoint).reduce((prev, [breakpoint, value]) => {
         return w > value ? (breakpoint as Breakpoint) : prev;
       }, "xs" as Breakpoint),
-    [theme.breakpoint],
+    [theme.breakpoint]
   );
 
   const [dimensions, setDimensions] = useState<ReturnType<UseDimensions>>({
