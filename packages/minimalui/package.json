@@ -26,6 +26,8 @@
     "access": "public"
   },
   "scripts": {
+    "start": "tsc -w",
+    "watch": "onchange 'dist/**/*.js' -- cp -R ./dist ../../docs/node_modules/@minimalui/core",
     "build": "tsc",
     "release": "yarn build && yarn publish"
   },
@@ -55,6 +57,7 @@
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "husky": ">=4",
     "lint-staged": ">=10",
+    "onchange": "^7.1.0",
     "prettier": "^2.2.1",
     "typescript": "~4.0.0"
   },
