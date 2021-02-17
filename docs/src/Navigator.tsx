@@ -84,7 +84,31 @@ export const Navigator: React.FunctionComponent = () => {
         drawerContent={(props) => <Drawer {...props} />}
         drawerType={permanentDrawer ? "permanent" : "slide"}
       >
+        <RootStack.Screen
+          component={Components.ButtonScreen}
+          name="Get Started"
+        />
+        <RootStack.Screen component={Components.ButtonScreen} name="Theming" />
+        <RootStack.Screen component={Components.AppBarScreen} name="AppBar" />
+        <RootStack.Screen component={Components.AvatarScreen} name="Avatar" />
         <RootStack.Screen component={Components.ButtonScreen} name="Button" />
+        <RootStack.Screen component={Components.CardScreen} name="Card" />
+        <RootStack.Screen component={Components.LayoutScreen} name="Layout" />
+        <RootStack.Screen component={Components.InputScreen} name="Input" />
+        <RootStack.Screen component={Components.ModalScreen} name="Modal" />
+        <RootStack.Screen
+          component={Components.ResponsiveScreen}
+          name="Responsive"
+        />
+
+        <RootStack.Screen
+          component={Components.TypographyScreen}
+          name="Typography"
+        />
+        <RootStack.Screen
+          component={Components.UtilitiesScreen}
+          name="Utilities"
+        />
       </RootStack.Navigator>
     </NavigationContainer>
   );
