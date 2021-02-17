@@ -1,0 +1,26 @@
+{
+  "files": {
+    "app.js": "/minimalui/static/js/app.6bc804a8.chunk.js",
+    "app.js.map": "/minimalui/static/js/app.6bc804a8.chunk.js.map",
+    "runtime~app.js": "/minimalui/static/js/runtime~app.f6bafcf0.js",
+    "runtime~app.js.map": "/minimalui/static/js/runtime~app.f6bafcf0.js.map",
+    "static/js/2.de359502.chunk.js": "/minimalui/static/js/2.de359502.chunk.js",
+    "static/js/2.de359502.chunk.js.map": "/minimalui/static/js/2.de359502.chunk.js.map",
+    "fonts/NotoSans_400Regular.ttf": "/minimalui/./fonts/NotoSans_400Regular.ttf",
+    "fonts/NotoSans_400Regular_Italic.ttf": "/minimalui/./fonts/NotoSans_400Regular_Italic.ttf",
+    "fonts/NotoSans_700Bold.ttf": "/minimalui/./fonts/NotoSans_700Bold.ttf",
+    "fonts/NotoSans_700Bold_Italic.ttf": "/minimalui/./fonts/NotoSans_700Bold_Italic.ttf",
+    "favicon-16.png": "/minimalui/favicon-16.png",
+    "favicon-32.png": "/minimalui/favicon-32.png",
+    "favicon.ico": "/minimalui/favicon.ico",
+    "index.html": "/minimalui/index.html",
+    "manifest.json": "/minimalui/manifest.json",
+    "serve.json": "/minimalui/serve.json",
+    "static/js/2.de359502.chunk.js.LICENSE.txt": "/minimalui/static/js/2.de359502.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime~app.f6bafcf0.js",
+    "static/js/2.de359502.chunk.js",
+    "static/js/app.6bc804a8.chunk.js"
+  ]
+}
