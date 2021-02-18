@@ -1,31 +1,36 @@
 /* eslint-disable sort-keys  */
 /* eslint-disable camelcase */
+import { Inconsolata_500Medium } from "@expo-google-fonts/inconsolata";
 import {
   NotoSans_400Regular,
   NotoSans_700Bold,
   useFonts,
 } from "@expo-google-fonts/noto-sans";
-import { ScrollProvider } from "@minimalui/core";
-import React, { useRef } from "react";
-import { Animated } from "react-native";
+import { createTheme, MinimalProvider } from "@minimalui/core";
+import React, { useState } from "react";
 
 import Navigator from "./src/Navigator";
 
 export default function App(): JSX.Element | null {
+  const [darkMode, setDarkMode] = useState<boolean>(true);
+
+  const theme = createTheme({
+    palette: { type: darkMode ? "dark" : "light" },
+  });
+
   const [loaded] = useFonts({
     NotoSansRegular: NotoSans_400Regular,
     NotoSansBold: NotoSans_700Bold,
+    Inconsolata: Inconsolata_500Medium,
   });
-  const x = useRef(new Animated.Value(0)).current;
-  const y = useRef(new Animated.Value(0)).current;
 
   if (!loaded) {
     return null;
   }
 
   return (
-    <ScrollProvider x={x} y={y}>
-      <Navigator />
-    </ScrollProvider>
+    <MinimalProvider theme={theme}>
+      <Navigator darkMode={darkMode} setDarkMode={setDarkMode} />
+    </MinimalProvider>
   );
 }

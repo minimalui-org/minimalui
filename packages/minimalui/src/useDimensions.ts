@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Dimensions, ScaledSize } from "react-native";
 
-import { Breakpoint } from "./createTheme";
+import { Breakpoint } from "./Theme";
 import { useTheme } from "./useTheme";
 
 type UseDimensions = (

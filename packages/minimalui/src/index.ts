@@ -17,6 +17,7 @@ export * from "./ReactNative";
 export * from "./ResponsiveList";
 export * from "./ScrollProvider";
 export * from "./Spacer";
+export * from "./Switch";
 export * from "./ThemeProvider";
 export * from "./createTheme";
 export * from "./useDimensions";

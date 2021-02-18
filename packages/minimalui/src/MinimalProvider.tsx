@@ -1,9 +1,10 @@
 import * as React from "react";
 import { Animated } from "react-native";
 
-import createTheme, { Theme } from "./createTheme";
+import createTheme from "./createTheme";
 import PortalHost from "./Portal/PortalHost";
 import ScrollProvider from "./ScrollProvider";
+import Theme from "./Theme";
 import ThemeProvider from "./ThemeProvider";
 
 export type MinimalProviderProps = {
@@ -18,13 +19,11 @@ export const MinimalProvider: React.FunctionComponent<MinimalProviderProps> = ({
   const y = React.useRef(new Animated.Value(0)).current;
 
   return (
-    <PortalHost>
-      <ThemeProvider theme={theme || createTheme()}>
-        <ScrollProvider x={x} y={y}>
-          {children}
-        </ScrollProvider>
-      </ThemeProvider>
-    </PortalHost>
+    <ThemeProvider theme={theme || createTheme()}>
+      <ScrollProvider x={x} y={y}>
+        <PortalHost>{children}</PortalHost>
+      </ScrollProvider>
+    </ThemeProvider>
   );
 };
 

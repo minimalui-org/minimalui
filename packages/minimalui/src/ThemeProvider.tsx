@@ -1,5 +1,5 @@
-import { Theme } from "createTheme";
 import * as React from "react";
+import { Theme } from "Theme";
 
 export type ThemeContextType = {
   theme?: Theme;

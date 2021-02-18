@@ -1,47 +1,8 @@
-import { StyleSheet, TextStyle, ViewStyle } from "react-native";
+import { StyleSheet } from "react-native";
 import merge from "ts-deepmerge";
 
+import { Theme } from "./Theme";
 import elevations from "./utilities/elevations";
-
-export type Breakpoint = "xs" | "sm" | "md" | "lg" | "xl";
-
-export type Theme = {
-  breakpoint: { [key in Breakpoint]: number };
-  elevation: (depth: number) => ViewStyle;
-  palette: {
-    background: {
-      default: string;
-      paper: string;
-    };
-    divider: string;
-    error: string;
-    info: string;
-    primary: string;
-    secondary: string;
-    success: string;
-    text: {
-      disabled: string;
-      primary: string;
-      secondary: string;
-    };
-    touchable: string;
-    type: "dark" | "light";
-    warning: string;
-  };
-  shape: {
-    borderRadius: number;
-  };
-  spacing: (size: number) => number;
-  typography: {
-    [key in
-      | "button"
-      | "caption"
-      | "headline"
-      | "paragraph"
-      | "subheading"
-      | "title"]: TextStyle;
-  };
-};
 
 type DeepPartial<T> = {
   [P in keyof T]?: DeepPartial<T[P]>;
@@ -60,8 +21,8 @@ export const createTheme = (userTheme: DeepPartial<Theme> = {}): Theme => {
 
   const lightPalette: Theme["palette"] = {
     background: {
-      default: "white",
-      paper: "#eceff1",
+      default: "#ffffff",
+      paper: "#f8f9fa",
     },
     divider: "#d3d3d3",
     error: "#f44336",

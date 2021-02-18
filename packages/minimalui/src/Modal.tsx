@@ -26,15 +26,15 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
   style,
   ...props
 }) => {
-  const [open, setOpen] = React.useState<boolean>(false);
+  // const [open, setOpen] = React.useState<boolean>(false);
 
-  React.useEffect(() => {
-    if (visible) {
-      setOpen(true);
-    } else {
-      setTimeout(() => setOpen(false), 300);
-    }
-  }, [visible]);
+  // React.useEffect(() => {
+  //   if (visible) {
+  //     setOpen(true);
+  //   } else {
+  //     setTimeout(() => setOpen(false), 300);
+  //   }
+  // }, [visible]);
 
   const theme = useTheme();
 
@@ -43,17 +43,17 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
    */
   const modalStyle: StyleProp<ViewStyle> = [
     Platform.OS === "web" && {
-      backgroundColor: "red",
-      // borderWidth: 0,
-      // bottom: 0,
-      // display: open ? undefined : "none",
+      borderWidth: 0,
+      bottom: 0,
+      display: visible ? "flex" : "none",
       // flex: 1,
-      // left: 0,
-      // position: "absolute",
-      // right: 0,
-      // top: 0,
+      left: 0,
+      position: "absolute",
+      right: 0,
+      top: 0,
     },
   ];
+  console.log(modalStyle);
 
   const overlayStyle: StyleProp<ViewStyle> = [
     {
@@ -104,16 +104,17 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
         animationType="fade"
         style={modalStyle}
         transparent
-        visible={open}
+        visible={visible}
         {...props}
       >
-        <TouchableWithoutFeedback onPress={onClose}>
+        {children}
+        {/* <TouchableWithoutFeedback onPress={onClose}>
           <View style={overlayStyle}>
             <TouchableWithoutFeedback onPress={() => null}>
               <View style={contentStyle}>{children}</View>
             </TouchableWithoutFeedback>
           </View>
-        </TouchableWithoutFeedback>
+        </TouchableWithoutFeedback> */}
       </LegacyModal>
     </Portal>
   );

@@ -1,9 +1,10 @@
 import * as React from "react";
 import { Animated, FlatList, FlatListProps, View } from "react-native";
 
+import useTheme from "./createTheme";
+import { Breakpoint } from "./Theme";
 import useDimensions from "./useDimensions";
 import useScroll from "./useScroll";
-import useTheme, { Breakpoint } from "./useTheme";
 
 export type ResponsiveListProps<T> = Omit<FlatListProps<T>, "renderItem"> & {
   breakpoints: {

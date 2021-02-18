@@ -1,4 +1,4 @@
-import { useDimensions, useTheme } from "@minimalui/core";
+import { Container, Switch, useDimensions, useTheme } from "@minimalui/core";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   createDrawerNavigator,
@@ -9,7 +9,7 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
 
-import * as Components from "./components";
+import * as Screens from "./screens";
 
 const RootStack = createDrawerNavigator();
 
@@ -25,7 +25,15 @@ const Drawer: React.FunctionComponent<DrawerContentComponentProps> = (
   );
 };
 
-export const Navigator: React.FunctionComponent = () => {
+type NavigatorProps = {
+  darkMode: boolean;
+  setDarkMode: (darkMode: boolean) => void;
+};
+
+export const Navigator: React.FunctionComponent<NavigatorProps> = ({
+  darkMode,
+  setDarkMode,
+}) => {
   const { type } = useDimensions();
   const [isReady, setIsReady] = useState(true);
   const [initialState, setInitialState] = useState();
@@ -58,18 +66,18 @@ export const Navigator: React.FunctionComponent = () => {
   }
 
   const navigationTheme = {
-    dark: theme.palette.type === "dark",
+    dark: darkMode,
     colors: {
       background: theme.palette.background.default,
-      border: theme.palette.divider,
-      card: "white" || theme.palette.background.paper,
+      border: "transparent",
+      card: theme.palette.background.paper,
       notification: theme.palette.secondary,
       primary: theme.palette.primary,
       text: theme.palette.text.primary,
     },
   };
 
-  const permanentDrawer = type === "lg" || type === "xl";
+  const isLargeScreen = type === "lg" || type === "xl";
 
   return (
     <NavigationContainer
@@ -82,31 +90,48 @@ export const Navigator: React.FunctionComponent = () => {
     >
       <RootStack.Navigator
         drawerContent={(props) => <Drawer {...props} />}
-        drawerType={permanentDrawer ? "permanent" : "slide"}
+        drawerStyle={{
+          backgroundColor: theme.palette.background.default,
+          borderRightColor: theme.palette.background.paper,
+          borderRightWidth: 1,
+          width: 240,
+        }}
+        drawerType={isLargeScreen ? "permanent" : "slide"}
+        screenOptions={{
+          headerRight: () => (
+            <Container>
+              <Switch
+                onValueChange={() => setDarkMode(!darkMode)}
+                value={darkMode}
+              />
+            </Container>
+          ),
+          headerShown: true,
+        }}
       >
         <RootStack.Screen
-          component={Components.ButtonScreen}
+          component={Screens.GetStartedScreen}
           name="Get Started"
         />
-        <RootStack.Screen component={Components.ButtonScreen} name="Theming" />
-        <RootStack.Screen component={Components.AppBarScreen} name="AppBar" />
-        <RootStack.Screen component={Components.AvatarScreen} name="Avatar" />
-        <RootStack.Screen component={Components.ButtonScreen} name="Button" />
-        <RootStack.Screen component={Components.CardScreen} name="Card" />
-        <RootStack.Screen component={Components.LayoutScreen} name="Layout" />
-        <RootStack.Screen component={Components.InputScreen} name="Input" />
-        <RootStack.Screen component={Components.ModalScreen} name="Modal" />
+        <RootStack.Screen component={Screens.ButtonScreen} name="Theming" />
+        <RootStack.Screen component={Screens.AppBarScreen} name="AppBar" />
+        <RootStack.Screen component={Screens.AvatarScreen} name="Avatar" />
+        <RootStack.Screen component={Screens.ButtonScreen} name="Button" />
+        <RootStack.Screen component={Screens.CardScreen} name="Card" />
+        <RootStack.Screen component={Screens.LayoutScreen} name="Layout" />
+        <RootStack.Screen component={Screens.InputScreen} name="Input" />
+        <RootStack.Screen component={Screens.ModalScreen} name="Modal" />
         <RootStack.Screen
-          component={Components.ResponsiveScreen}
+          component={Screens.ResponsiveScreen}
           name="Responsive"
         />
 
         <RootStack.Screen
-          component={Components.TypographyScreen}
+          component={Screens.TypographyScreen}
           name="Typography"
         />
         <RootStack.Screen
-          component={Components.UtilitiesScreen}
+          component={Screens.UtilitiesScreen}
           name="Utilities"
         />
       </RootStack.Navigator>
