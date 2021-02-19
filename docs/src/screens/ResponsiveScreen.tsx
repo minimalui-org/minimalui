@@ -1,5 +1,5 @@
 import { Avatar, Container, ScrollView } from "@minimalui/core";
-import React from "react";
+import * as React from "react";
 
 export const ResponsiveScreen: React.FunctionComponent = () => {
   return (

@@ -1,5 +1,5 @@
 import { Button, Container, ScrollView } from "@minimalui/core";
-import React from "react";
+import * as React from "react";
 
 export const ButtonScreen: React.FunctionComponent = () => {
   const variants = ["text", "contained", "outlined", "gradient"] as const;
@@ -15,7 +15,7 @@ export const ButtonScreen: React.FunctionComponent = () => {
 
   return (
     <ScrollView style={{ width: "100%" }}>
-      <Container>
+      <Container spacing={8}>
         {variants.map((variant) =>
           colors.map((color) => (
             <Container key={`${variant} ${color}`}>

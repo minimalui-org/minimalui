@@ -1,7 +1,8 @@
 import * as React from "react";
-import { StyleProp, Text, TextProps, TextStyle } from "react-native";
+import { StyleProp, TextStyle } from "react-native";
 
 import useTheme from "../useTheme";
+import { Text, TextProps } from "./Text";
 
 export type ParagraphProps = TextProps;
 

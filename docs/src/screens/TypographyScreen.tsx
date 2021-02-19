@@ -4,9 +4,10 @@ import {
   Headline,
   Paragraph,
   ScrollView,
+  Subheading,
   Title,
 } from "@minimalui/core";
-import React from "react";
+import * as React from "react";
 
 export const TypographyScreen: React.FunctionComponent = () => {
   const variants = ["text", "contained", "outlined", "gradient"] as const;
@@ -22,9 +23,10 @@ export const TypographyScreen: React.FunctionComponent = () => {
 
   return (
     <ScrollView style={{ width: "100%" }}>
-      <Container>
+      <Container spacing={8}>
         <Headline>Headline</Headline>
         <Title>Title</Title>
+        <Subheading>Subheading</Subheading>
         <Paragraph>Paragraph</Paragraph>
         <Caption>Caption</Caption>
       </Container>

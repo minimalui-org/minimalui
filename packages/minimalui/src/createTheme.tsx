@@ -45,7 +45,7 @@ export const createTheme = (userTheme: DeepPartial<Theme> = {}): Theme => {
       default: "#212121",
       paper: "#333333",
     },
-    divider: "white",
+    divider: "#333333",
     error: "#f44336",
     info: "#2196f3",
     primary: "#45afe8",
@@ -88,6 +88,7 @@ export const createTheme = (userTheme: DeepPartial<Theme> = {}): Theme => {
       color: palette.text.secondary,
       fontFamily: "NotoSansRegular",
       fontSize: defaultFontSize,
+      lineHeight: defaultFontSize * 1.5,
     },
     subheading: {
       color: palette.text.primary,

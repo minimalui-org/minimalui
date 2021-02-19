@@ -1,10 +1,10 @@
 import { Avatar, Container, ScrollView } from "@minimalui/core";
-import React from "react";
+import * as React from "react";
 
 export const UtilitiesScreen: React.FunctionComponent = () => {
   return (
     <ScrollView style={{ width: "100%" }}>
-      <Container>
+      <Container spacing={8}>
         <Avatar source={{ uri: "https://i.pravatar.cc/300" }} />
       </Container>
     </ScrollView>

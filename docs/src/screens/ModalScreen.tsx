@@ -16,7 +16,7 @@ export const ModalScreen: React.FunctionComponent = () => {
 
   return (
     <ScrollView style={{ width: "100%" }}>
-      <Container>
+      <Container spacing={8}>
         <Button onPress={handleOpen}>Open</Button>
         <Modal onClose={handleClose} visible={open}>
           <Title>Hello</Title>

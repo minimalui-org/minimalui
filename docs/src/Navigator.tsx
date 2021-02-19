@@ -1,4 +1,13 @@
-import { Container, Switch, useDimensions, useTheme } from "@minimalui/core";
+import { Feather } from "@expo/vector-icons";
+import {
+  Container,
+  IconButton,
+  Spacer,
+  Switch,
+  Title,
+  useDimensions,
+  useTheme,
+} from "@minimalui/core";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   createDrawerNavigator,
@@ -98,11 +107,36 @@ export const Navigator: React.FunctionComponent<NavigatorProps> = ({
         }}
         drawerType={isLargeScreen ? "permanent" : "slide"}
         screenOptions={{
-          headerRight: () => (
-            <Container>
+          header: ({
+            scene: {
+              descriptor: {
+                navigation,
+                options: { title },
+              },
+              route: { name },
+            },
+          }) => (
+            <Container style={{ flexDirection: "row", alignItems: "center" }}>
+              <IconButton onPress={(navigation as any).toggleDrawer}>
+                <Feather name="menu" />
+              </IconButton>
+              <Spacer />
+              <Title style={{ flex: 1 }}>{title || name}</Title>
+              <Feather
+                color={theme.palette.text.primary}
+                name="sun"
+                size={18}
+              />
+              <Spacer />
               <Switch
                 onValueChange={() => setDarkMode(!darkMode)}
                 value={darkMode}
+              />
+              <Spacer />
+              <Feather
+                color={theme.palette.text.primary}
+                name="moon"
+                size={18}
               />
             </Container>
           ),
@@ -113,7 +147,8 @@ export const Navigator: React.FunctionComponent<NavigatorProps> = ({
           component={Screens.GetStartedScreen}
           name="Get Started"
         />
-        <RootStack.Screen component={Screens.ButtonScreen} name="Theming" />
+        <RootStack.Screen component={Screens.ThemingScreen} name="Theming" />
+        <RootStack.Screen component={Screens.DemoScreen} name="Demo" />
         <RootStack.Screen component={Screens.AppBarScreen} name="AppBar" />
         <RootStack.Screen component={Screens.AvatarScreen} name="Avatar" />
         <RootStack.Screen component={Screens.ButtonScreen} name="Button" />
@@ -126,6 +161,7 @@ export const Navigator: React.FunctionComponent<NavigatorProps> = ({
           name="Responsive"
         />
 
+        <RootStack.Screen component={Screens.SwitchScreen} name="Switch" />
         <RootStack.Screen
           component={Screens.TypographyScreen}
           name="Typography"

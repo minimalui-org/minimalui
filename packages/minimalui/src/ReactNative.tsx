@@ -1,8 +1,1 @@
-export {
-  Dimensions,
-  FlatList,
-  Image,
-  ScrollView,
-  Text,
-  View,
-} from "react-native";
+export { Dimensions, FlatList, Image, ScrollView, View } from "react-native";

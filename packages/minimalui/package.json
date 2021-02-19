@@ -28,7 +28,7 @@
   "scripts": {
     "start": "tsc -w",
     "build": "tsc",
-    "release": "yarn build && yarn publish"
+    "deploy": "yarn build && yarn publish"
   },
   "dependencies": {
     "color": "^3.1.3",

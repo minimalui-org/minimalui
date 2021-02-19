@@ -1,5 +1,5 @@
 import { useTheme } from "@minimalui/core";
-import React from "react";
+import * as React from "react";
 import { Text, TextStyle, View } from "react-native";
 import Highlighter, { SyntaxHighlighterProps } from "react-syntax-highlighter";
 import {
