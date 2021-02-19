@@ -1,6 +1,6 @@
 {
   "name": "@minimalui/core",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "private": false,
   "author": "Minimal-UI Team",
   "description": "Don't reinvent the wheel. Create beautiful React Native apps by using Minimal UI, a set of usable components for all your basic needs. Extends the existing ones, create your own theme and build new modern apps.",
