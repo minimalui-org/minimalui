@@ -1,26 +1,46 @@
 {
   "files": {
-    "app.js": "/minimalui/static/js/app.6bc804a8.chunk.js",
-    "app.js.map": "/minimalui/static/js/app.6bc804a8.chunk.js.map",
+    "app.js": "/minimalui/static/js/app.81ba3a49.chunk.js",
+    "app.js.map": "/minimalui/static/js/app.81ba3a49.chunk.js.map",
     "runtime~app.js": "/minimalui/static/js/runtime~app.f6bafcf0.js",
     "runtime~app.js.map": "/minimalui/static/js/runtime~app.f6bafcf0.js.map",
-    "static/js/2.de359502.chunk.js": "/minimalui/static/js/2.de359502.chunk.js",
-    "static/js/2.de359502.chunk.js.map": "/minimalui/static/js/2.de359502.chunk.js.map",
+    "static/js/2.9c703e83.chunk.js": "/minimalui/static/js/2.9c703e83.chunk.js",
+    "static/js/2.9c703e83.chunk.js.map": "/minimalui/static/js/2.9c703e83.chunk.js.map",
+    "fonts/AntDesign.ttf": "/minimalui/./fonts/AntDesign.ttf",
+    "fonts/Entypo.ttf": "/minimalui/./fonts/Entypo.ttf",
+    "fonts/Feather.ttf": "/minimalui/./fonts/Feather.ttf",
+    "fonts/FontAwesome.ttf": "/minimalui/./fonts/FontAwesome.ttf",
+    "fonts/FontAwesome5_Brands.ttf": "/minimalui/./fonts/FontAwesome5_Brands.ttf",
+    "fonts/FontAwesome5_Solid.ttf": "/minimalui/./fonts/FontAwesome5_Solid.ttf",
+    "fonts/Fontisto.ttf": "/minimalui/./fonts/Fontisto.ttf",
+    "fonts/Foundation.ttf": "/minimalui/./fonts/Foundation.ttf",
+    "fonts/Inconsolata_200ExtraLight.ttf": "/minimalui/./fonts/Inconsolata_200ExtraLight.ttf",
+    "fonts/Inconsolata_300Light.ttf": "/minimalui/./fonts/Inconsolata_300Light.ttf",
+    "fonts/Inconsolata_400Regular.ttf": "/minimalui/./fonts/Inconsolata_400Regular.ttf",
+    "fonts/Inconsolata_500Medium.ttf": "/minimalui/./fonts/Inconsolata_500Medium.ttf",
+    "fonts/Inconsolata_600SemiBold.ttf": "/minimalui/./fonts/Inconsolata_600SemiBold.ttf",
+    "fonts/Inconsolata_700Bold.ttf": "/minimalui/./fonts/Inconsolata_700Bold.ttf",
+    "fonts/Inconsolata_800ExtraBold.ttf": "/minimalui/./fonts/Inconsolata_800ExtraBold.ttf",
+    "fonts/Inconsolata_900Black.ttf": "/minimalui/./fonts/Inconsolata_900Black.ttf",
+    "fonts/Ionicons.ttf": "/minimalui/./fonts/Ionicons.ttf",
+    "fonts/MaterialCommunityIcons.ttf": "/minimalui/./fonts/MaterialCommunityIcons.ttf",
+    "fonts/MaterialIcons.ttf": "/minimalui/./fonts/MaterialIcons.ttf",
     "fonts/NotoSans_400Regular.ttf": "/minimalui/./fonts/NotoSans_400Regular.ttf",
     "fonts/NotoSans_400Regular_Italic.ttf": "/minimalui/./fonts/NotoSans_400Regular_Italic.ttf",
     "fonts/NotoSans_700Bold.ttf": "/minimalui/./fonts/NotoSans_700Bold.ttf",
     "fonts/NotoSans_700Bold_Italic.ttf": "/minimalui/./fonts/NotoSans_700Bold_Italic.ttf",
+    "fonts/SimpleLineIcons.ttf": "/minimalui/./fonts/SimpleLineIcons.ttf",
     "favicon-16.png": "/minimalui/favicon-16.png",
     "favicon-32.png": "/minimalui/favicon-32.png",
     "favicon.ico": "/minimalui/favicon.ico",
     "index.html": "/minimalui/index.html",
     "manifest.json": "/minimalui/manifest.json",
     "serve.json": "/minimalui/serve.json",
-    "static/js/2.de359502.chunk.js.LICENSE.txt": "/minimalui/static/js/2.de359502.chunk.js.LICENSE.txt"
+    "static/js/2.9c703e83.chunk.js.LICENSE.txt": "/minimalui/static/js/2.9c703e83.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime~app.f6bafcf0.js",
-    "static/js/2.de359502.chunk.js",
-    "static/js/app.6bc804a8.chunk.js"
+    "static/js/2.9c703e83.chunk.js",
+    "static/js/app.81ba3a49.chunk.js"
   ]
 }
