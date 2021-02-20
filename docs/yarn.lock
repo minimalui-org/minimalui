@@ -1591,10 +1591,10 @@
     "@babel/runtime" "^7.7.2"
     regenerator-runtime "^0.13.3"
 
-"@minimalui/core@^0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@minimalui/core/-/core-0.0.10.tgz#1884d368090f2493056e6a9e335bd9466fb6bfb4"
-  integrity sha512-pWjmIQNvCJWa15rjMftgYje2VcPI84NG1NmPFaCmU+6N778HW9+qJIi7/O/3bAwL/9mzE74XxLCVNComV9nTQQ==
+"@minimalui/core@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@minimalui/core/-/core-0.0.11.tgz#8cbe6b9e353650b4f9ad8347bb60be7f942d6f87"
+  integrity sha512-QZGgTaDwoITCrVNJf04ESyKRehqy8wGbG1JsKaYOBIFsw3zxYb2DYgDAMdWJ/TG7rv6JcJ3TFPiLoAJqXmi4KQ==
   dependencies:
     color "^3.1.3"
     expo-linear-gradient "^9.0.0"
