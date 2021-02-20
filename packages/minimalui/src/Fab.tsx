@@ -4,19 +4,25 @@ import { StyleProp, View, ViewStyle } from "react-native";
 import IconButton, { IconButtonProps } from "./IconButton";
 import useTheme from "./useTheme";
 
-export type FabProps = IconButtonProps;
+export type FabProps = IconButtonProps & {
+  align?: "center" | "left" | "right";
+};
 
-export const Fab: React.FunctionComponent<FabProps> = ({ style, ...props }) => {
+export const Fab: React.FunctionComponent<FabProps> = ({
+  align = "center",
+  style,
+  ...props
+}) => {
   const theme = useTheme();
 
   const fabStyle: StyleProp<ViewStyle> = [
     {
       alignItems: "center",
       bottom: theme.spacing(2),
-      left: 0,
+      left: align === "right" ? undefined : theme.spacing(2),
       padding: theme.spacing(1),
       position: "absolute",
-      right: 0,
+      right: align === "left" ? undefined : theme.spacing(2),
     },
     style,
   ];

@@ -2,6 +2,10 @@ import { TextStyle, ViewStyle } from "react-native";
 
 export type Breakpoint = "xs" | "sm" | "md" | "lg" | "xl";
 
+export type BreakpointProps<T = number> = {
+  [key in Breakpoint]?: T;
+};
+
 export type Theme = {
   breakpoint: { [key in Breakpoint]: number };
   elevation: (depth: number) => ViewStyle;
@@ -30,13 +34,13 @@ export type Theme = {
   };
   spacing: (size: number) => number;
   typography: {
-    [key in
-      | "button"
-      | "caption"
-      | "headline"
-      | "paragraph"
-      | "subheading"
-      | "title"]: TextStyle;
+    button: TextStyle;
+    caption: TextStyle;
+    headline: TextStyle;
+    paragraph: TextStyle;
+    subheading: TextStyle;
+    text: TextStyle;
+    title: TextStyle;
   };
 };
 

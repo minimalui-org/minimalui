@@ -1,5 +1,6 @@
 import { Feather } from "@expo/vector-icons";
 import {
+  Button,
   Container,
   IconButton,
   Spacer,
@@ -13,7 +14,6 @@ import {
   createDrawerNavigator,
   DrawerContentComponentProps,
   DrawerContentScrollView,
-  DrawerItemList,
 } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
@@ -27,9 +27,36 @@ const linking = { enabled: true, prefixes: ["https://google.com"] };
 const Drawer: React.FunctionComponent<DrawerContentComponentProps> = (
   props
 ) => {
+  const pages = [
+    { title: "Get Started", file: "get_started" },
+    { title: "Demo", file: "demo" },
+    { title: "Theming", file: "theming" },
+    { title: "Hooks", file: "hooks" },
+    { title: "AppBar", file: "components/app_bar" },
+    { title: "Avatar", file: "components/avatar" },
+    { title: "Button", file: "components/button" },
+    { title: "Card", file: "components/card" },
+    { title: "Fab", file: "components/fab" },
+    { title: "IconButton", file: "components/icon_button" },
+    { title: "Input", file: "components/input" },
+    { title: "Layout", file: "components/layout" },
+    { title: "Modal", file: "components/modal" },
+    { title: "ResponsiveList", file: "components/responsive_list" },
+    { title: "Switch", file: "components/switch" },
+    { title: "Text", file: "components/text" },
+  ];
+
   return (
     <DrawerContentScrollView {...props}>
-      <DrawerItemList {...props} />
+      {pages.map((p) => (
+        <Button
+          key={p.file}
+          onPress={() => props.navigation.navigate("Page", p)}
+          style={{ alignItems: "flex-start", backgroundColor: "transparent" }}
+        >
+          {p.title}
+        </Button>
+      ))}
     </DrawerContentScrollView>
   );
 };
@@ -117,11 +144,13 @@ export const Navigator: React.FunctionComponent<NavigatorProps> = ({
             },
           }) => (
             <Container style={{ flexDirection: "row", alignItems: "center" }}>
-              <IconButton onPress={(navigation as any).toggleDrawer}>
-                <Feather name="menu" />
-              </IconButton>
+              {!isLargeScreen && (
+                <IconButton onPress={(navigation as any).toggleDrawer}>
+                  <Feather name="menu" />
+                </IconButton>
+              )}
               <Spacer />
-              <Title style={{ flex: 1 }}>{title || name}</Title>
+              <Title style={{ flex: 1 }}>{/* title || name */}</Title>
               <Feather
                 color={theme.palette.text.primary}
                 name="sun"
@@ -143,33 +172,7 @@ export const Navigator: React.FunctionComponent<NavigatorProps> = ({
           headerShown: true,
         }}
       >
-        <RootStack.Screen
-          component={Screens.GetStartedScreen}
-          name="Get Started"
-        />
-        <RootStack.Screen component={Screens.ThemingScreen} name="Theming" />
-        <RootStack.Screen component={Screens.DemoScreen} name="Demo" />
-        <RootStack.Screen component={Screens.AppBarScreen} name="AppBar" />
-        <RootStack.Screen component={Screens.AvatarScreen} name="Avatar" />
-        <RootStack.Screen component={Screens.ButtonScreen} name="Button" />
-        <RootStack.Screen component={Screens.CardScreen} name="Card" />
-        <RootStack.Screen component={Screens.LayoutScreen} name="Layout" />
-        <RootStack.Screen component={Screens.InputScreen} name="Input" />
-        <RootStack.Screen component={Screens.ModalScreen} name="Modal" />
-        <RootStack.Screen
-          component={Screens.ResponsiveScreen}
-          name="Responsive"
-        />
-
-        <RootStack.Screen component={Screens.SwitchScreen} name="Switch" />
-        <RootStack.Screen
-          component={Screens.TypographyScreen}
-          name="Typography"
-        />
-        <RootStack.Screen
-          component={Screens.UtilitiesScreen}
-          name="Utilities"
-        />
+        <RootStack.Screen component={Screens.PageScreen} name="Page" />
       </RootStack.Navigator>
     </NavigationContainer>
   );

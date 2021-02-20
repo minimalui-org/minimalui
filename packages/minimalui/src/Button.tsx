@@ -14,7 +14,11 @@ import {
 
 import ConditionalWrapper from "./ConditionalWrapper";
 import useTheme from "./useTheme";
-import pick, { PaddingStyleKeys, TextStyleKeys } from "./utilities/pick";
+import pick, {
+  MarginStyleKeys,
+  PaddingStyleKeys,
+  TextStyleKeys,
+} from "./utilities/pick";
 
 export type ButtonProps = Omit<PressableProps, "children" | "style"> & {
   children: ((textStyle: TextStyle[]) => React.ReactNode) | React.ReactNode;
@@ -29,7 +33,7 @@ export type ButtonProps = Omit<PressableProps, "children" | "style"> & {
   elevation?: number;
   fullWidth?: boolean;
   style?: TextStyle & ViewStyle;
-  variant?: "text" | "contained" | "outlined" | "gradient";
+  variant?: "flat" | "contained" | "outlined" | "gradient";
 };
 
 export const Button: React.FunctionComponent<ButtonProps> = (props) => {
@@ -39,7 +43,7 @@ export const Button: React.FunctionComponent<ButtonProps> = (props) => {
     fullWidth,
     style,
     children,
-    variant = "text",
+    variant = "flat",
     ...rest
   } = props;
   const { disabled } = rest;
@@ -48,7 +52,7 @@ export const Button: React.FunctionComponent<ButtonProps> = (props) => {
 
   const containerStyle: StyleProp<ViewStyle> = [
     {
-      borderRadius: theme.shape.borderRadius,
+      borderRadius: style?.borderRadius || theme.shape.borderRadius,
       overflow: "hidden",
       width: (fullWidth && "100%") || undefined,
     },
@@ -57,14 +61,14 @@ export const Button: React.FunctionComponent<ButtonProps> = (props) => {
         ((variant === "contained" || variant === "gradient") && 10) ||
         0
     ),
-    style && { borderRadius: style.borderRadius },
+    style && pick(style, MarginStyleKeys),
   ];
 
   const paddingStyle: StyleProp<ViewStyle> = [
     {
       alignItems: "center",
-      paddingHorizontal: theme.spacing(3),
-      paddingVertical: theme.spacing(2),
+      paddingHorizontal: style?.padding ? undefined : theme.spacing(3),
+      paddingVertical: style?.padding ? undefined : theme.spacing(2),
     },
     style && pick(style, PaddingStyleKeys),
   ];
@@ -73,12 +77,12 @@ export const Button: React.FunctionComponent<ButtonProps> = (props) => {
     {
       color: Object({
         contained: color === "default" ? theme.palette.text.primary : "white",
-        gradient: "white",
-        outlined:
+        flat:
           color === "default"
             ? theme.palette.text.primary
             : theme.palette[color],
-        text:
+        gradient: "white",
+        outlined:
           color === "default"
             ? theme.palette.text.primary
             : theme.palette[color],
@@ -93,7 +97,7 @@ export const Button: React.FunctionComponent<ButtonProps> = (props) => {
       backgroundColor: Object.create({
         contained:
           color === "default" ? theme.palette.touchable : theme.palette[color],
-        text: theme.palette.touchable,
+        flat: theme.palette.touchable,
       })[variant],
       borderColor: Object({
         outlined:
@@ -147,12 +151,12 @@ export const Button: React.FunctionComponent<ButtonProps> = (props) => {
           android_ripple={{
             color: Object({
               contained: "white",
-              gradient: "white",
-              outlined:
+              flat:
                 color === "default"
                   ? theme.palette.text.secondary
                   : theme.palette[color],
-              text:
+              gradient: "white",
+              outlined:
                 color === "default"
                   ? theme.palette.text.secondary
                   : theme.palette[color],

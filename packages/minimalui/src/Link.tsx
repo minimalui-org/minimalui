@@ -8,7 +8,7 @@ import {
   ViewStyle,
 } from "react-native";
 
-import Text from "./Typography/Text";
+import Text from "./Text/Text";
 import useTheme from "./useTheme";
 
 export type LinkProps = PressableProps & {

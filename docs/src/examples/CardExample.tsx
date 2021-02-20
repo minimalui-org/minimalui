@@ -1,10 +1,10 @@
 import { Card, Container, ScrollView } from "@minimalui/core";
 import * as React from "react";
 
-export const CardScreen: React.FunctionComponent = () => {
+export const CardExample = () => {
   return (
     <ScrollView style={{ width: "100%" }}>
-      <Container spacing={8}>
+      <Container xs={8}>
         <Card>
           <Card.Title title="Hello" />
         </Card>
@@ -13,4 +13,4 @@ export const CardScreen: React.FunctionComponent = () => {
   );
 };
 
-export default CardScreen;
+export default CardExample;

@@ -1,5 +1,11 @@
 import * as React from "react";
-import { StyleProp, StyleSheet, TextStyle, ViewStyle } from "react-native";
+import {
+  StyleProp,
+  StyleSheet,
+  TextStyle,
+  View,
+  ViewStyle,
+} from "react-native";
 
 import Button, { ButtonProps } from "./Button";
 import useTheme from "./useTheme";
@@ -26,17 +32,26 @@ export const IconButton: React.FunctionComponent<IconButtonProps> = ({
     style,
   ];
 
+  const iconContainerStyle: StyleProp<ViewStyle> = [
+    {
+      height: size,
+      width: size,
+    },
+  ];
+
   return (
     <Button {...props} style={StyleSheet.flatten(iconButtonStyle)}>
-      {(textStyle) =>
-        React.cloneElement(children, {
-          color: textStyle
-            .map((t: TextStyle) => t.color)
-            .filter((c) => c)
-            .pop(),
-          size,
-        })
-      }
+      {(textStyle) => (
+        <View style={iconContainerStyle}>
+          {React.cloneElement(children, {
+            color: textStyle
+              .map((t: TextStyle) => t.color)
+              .filter((c) => c)
+              .pop(),
+            size,
+          })}
+        </View>
+      )}
     </Button>
   );
 };

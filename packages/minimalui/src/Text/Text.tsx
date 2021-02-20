@@ -6,6 +6,7 @@ import {
   TextStyle,
 } from "react-native";
 
+import Spacer from "../Spacer";
 import useTheme from "../useTheme";
 
 export type TextProps = LegacyTextProps & {
@@ -17,22 +18,38 @@ export type TextProps = LegacyTextProps & {
     | "info"
     | "success"
     | "warning";
+  gutter?: true | number;
+  gutterBottom?: true | number;
+  gutterTop?: true | number;
 };
 
 export const Text: React.FunctionComponent<TextProps> = ({
   color = "default",
+  gutter,
+  gutterBottom,
+  gutterTop,
   style,
   ...props
 }) => {
   const theme = useTheme();
 
   const textStyle: StyleProp<TextStyle> = [
-    theme.typography.paragraph,
-    style,
+    theme.typography.text,
     color !== "default" && { color: theme.palette[color] },
+    style,
   ];
 
-  return <LegacyText {...props} style={textStyle} />;
+  return (
+    <>
+      {(gutterTop || gutter) && (
+        <Spacer spacing={+(gutterTop || gutter || true)} />
+      )}
+      <LegacyText {...props} style={textStyle} />
+      {(gutterBottom || gutter) && (
+        <Spacer spacing={+(gutterBottom || gutter || true)} />
+      )}
+    </>
+  );
 };
 
 export default Text;

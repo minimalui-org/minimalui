@@ -1,4 +1,3 @@
-import { StyleSheet } from "react-native";
 import merge from "ts-deepmerge";
 
 import { Theme } from "./Theme";
@@ -66,9 +65,9 @@ export const createTheme = (userTheme: DeepPartial<Theme> = {}): Theme => {
 
   const spacing: Theme["spacing"] = (size = 1) => size * 8;
 
-  const defaultFontSize = 14;
+  const defaultFontSize = userTheme.typography?.text?.fontSize || 14;
 
-  const typography: Theme["typography"] = StyleSheet.create({
+  const typography: Theme["typography"] = {
     button: {
       fontWeight: "600",
       fontFamily: "NotoSansBold",
@@ -77,12 +76,14 @@ export const createTheme = (userTheme: DeepPartial<Theme> = {}): Theme => {
     caption: {
       color: palette.text.secondary,
       fontFamily: "NotoSansRegular",
-      fontSize: defaultFontSize,
+      fontSize: defaultFontSize * 0.9,
+      lineHeight: defaultFontSize * 0.9 * 1.5,
     },
     headline: {
       color: palette.text.primary,
       fontFamily: "NotoSansBold",
       fontSize: defaultFontSize * 2.5,
+      lineHeight: defaultFontSize * 2.5 * 1.5,
     },
     paragraph: {
       color: palette.text.secondary,
@@ -94,13 +95,20 @@ export const createTheme = (userTheme: DeepPartial<Theme> = {}): Theme => {
       color: palette.text.primary,
       fontFamily: "NotoSansBold",
       fontSize: defaultFontSize * 1.1,
+      lineHeight: defaultFontSize * 1.1 * 1.5,
+    },
+    text: {
+      color: palette.text.primary,
+      fontFamily: "NotoSansRegular",
+      fontSize: defaultFontSize,
     },
     title: {
       color: palette.text.primary,
       fontFamily: "NotoSansBold",
-      fontSize: defaultFontSize * 1.3,
+      fontSize: defaultFontSize * 1.5,
+      lineHeight: defaultFontSize * 1.5 * 1.5,
     },
-  });
+  };
 
   return merge(
     {

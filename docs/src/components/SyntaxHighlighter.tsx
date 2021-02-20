@@ -3,8 +3,8 @@ import * as React from "react";
 import { Text, TextStyle, View } from "react-native";
 import Highlighter, { SyntaxHighlighterProps } from "react-syntax-highlighter";
 import {
-  tomorrow as lightStyle,
-  tomorrowNight as darkStyle,
+  atomOneDarkReasonable as darkStyle,
+  atomOneLight as lightStyle,
 } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 type Node = {
@@ -29,21 +29,23 @@ export const SyntaxHighlighter: React.FunctionComponent<SyntaxHighlighterProps> 
 ) => {
   const theme = useTheme();
 
-  let stylesheet: StyleSheet;
+  const cleanStyle = (style: TextStyle) => {
+    const clean: TextStyle = {
+      ...style,
+      display: undefined,
+    };
+    return clean;
+  };
 
-  const renderNode = (nodes: Node[], key = "0", className: string[] = []) =>
+  const stylesheet: StyleSheet = Object.fromEntries(
+    Object.entries(
+      (theme.palette.type === "light" ? lightStyle : darkStyle) as StyleSheet
+    ).map(([className, style]) => [className, cleanStyle(style)])
+  );
+
+  const renderNode = (nodes: Node[], key = "0") =>
     nodes.reduce<React.ReactNode[]>((acc, node, index) => {
       if (node.children) {
-        acc.push(
-          ...renderNode(
-            node.children,
-            `${key}.${index}`,
-            node.properties?.className
-          )
-        );
-      }
-
-      if (node.value) {
         acc.push(
           <Text
             // eslint-disable-next-line react/no-array-index-key
@@ -52,23 +54,26 @@ export const SyntaxHighlighter: React.FunctionComponent<SyntaxHighlighterProps> 
               {
                 color: stylesheet.hljs.color,
               },
-              ...className.map((c) => stylesheet[c]),
+              ...(node.properties?.className || []).map((c) => stylesheet[c]),
               {
-                fontSize: 14,
+                fontSize: theme.typography.text.fontSize,
                 fontFamily: "Inconsolata",
               },
             ]}
           >
-            {node.value}
+            {renderNode(node.children, `${key}.${index}`)}
           </Text>
         );
+      }
+
+      if (node.value) {
+        acc.push(node.value);
       }
 
       return acc;
     }, []);
 
-  const nativeRenderer = (params: RendererParams) => {
-    stylesheet = params.stylesheet;
+  const nativeRenderer = ({ rows }: RendererParams) => {
     return (
       <View
         style={[
@@ -76,7 +81,7 @@ export const SyntaxHighlighter: React.FunctionComponent<SyntaxHighlighterProps> 
           { backgroundColor: theme.palette.background.paper, padding: 16 },
         ]}
       >
-        {renderNode(params.rows)}
+        {renderNode(rows)}
       </View>
     );
   };
@@ -90,7 +95,7 @@ export const SyntaxHighlighter: React.FunctionComponent<SyntaxHighlighterProps> 
       }}
       PreTag={View}
       renderer={nativeRenderer}
-      style={theme.palette.type === "light" ? lightStyle : darkStyle}
+      style={stylesheet}
     />
   );
 };

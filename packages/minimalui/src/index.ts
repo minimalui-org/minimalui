@@ -1,7 +1,7 @@
 export * from "./Card";
 export * from "./Portal";
 export * from "./Table";
-export * from "./Typography";
+export * from "./Text";
 export * from "./utilities";
 export * from "./AppBar";
 export * from "./Avatar";
@@ -24,5 +24,6 @@ export * from "./Theme";
 export * from "./ThemeProvider";
 export * from "./createTheme";
 export * from "./useDimensions";
+export * from "./useResponsive";
 export * from "./useScroll";
 export * from "./useTheme";

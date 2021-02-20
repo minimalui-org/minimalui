@@ -74,14 +74,16 @@ export const TextStyleKeys: Array<
 
 export function pick<T extends Style, U extends keyof T>(
   obj: T,
-  paths: Array<U>,
+  paths: Array<U>
 ): Pick<T, U> {
   const ret = Object.create(null);
+
   paths.forEach((k) => {
-    ret[k] = obj[k];
+    if (obj[k] !== undefined) ret[k] = obj[k];
     // eslint-disable-next-line no-param-reassign
     delete obj[k];
   });
+
   return ret;
 }
 

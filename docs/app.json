@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "docs",
-    "slug": "docs",
+    "name": "minimalui",
+    "slug": "minimalui",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Create beautiful React Native apps by using Minimal UI, a set of reusable components for all your basic needs. Extends the existing ones, create your own theme and build new modern apps.",
+    "githubUrl": "https://github.com/minimalui-org/minimalui"
   }
 }

@@ -1,6 +1,6 @@
 /* eslint-disable sort-keys  */
 /* eslint-disable camelcase */
-import { Inconsolata_500Medium } from "@expo-google-fonts/inconsolata";
+import { Inconsolata_600SemiBold } from "@expo-google-fonts/inconsolata";
 import {
   NotoSans_400Regular,
   NotoSans_700Bold,
@@ -16,12 +16,17 @@ export default function App(): JSX.Element | null {
 
   const theme = createTheme({
     palette: { type: darkMode ? "dark" : "light" },
+    typography: {
+      text: {
+        fontSize: 16,
+      },
+    },
   });
 
   const [loaded] = useFonts({
     NotoSansRegular: NotoSans_400Regular,
     NotoSansBold: NotoSans_700Bold,
-    Inconsolata: Inconsolata_500Medium,
+    Inconsolata: Inconsolata_600SemiBold,
   });
 
   if (!loaded) {
