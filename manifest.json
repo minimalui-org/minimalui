@@ -1,9 +1,10 @@
 {
   "background_color": "#ffffff",
+  "description": "Create beautiful React Native apps by using Minimal UI, a set of reusable components for all your basic needs. Extends the existing ones, create your own theme and build new modern apps.",
   "display": "standalone",
   "lang": "en",
-  "name": "docs",
-  "short_name": "docs",
+  "name": "minimalui",
+  "short_name": "minimalui",
   "start_url": "/?utm_source=web_app_manifest",
   "orientation": "portrait",
   "icons": [

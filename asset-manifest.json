@@ -1,11 +1,11 @@
 {
   "files": {
-    "app.js": "/minimalui/static/js/app.81ba3a49.chunk.js",
-    "app.js.map": "/minimalui/static/js/app.81ba3a49.chunk.js.map",
+    "app.js": "/minimalui/static/js/app.dc7d2d32.chunk.js",
+    "app.js.map": "/minimalui/static/js/app.dc7d2d32.chunk.js.map",
     "runtime~app.js": "/minimalui/static/js/runtime~app.f6bafcf0.js",
     "runtime~app.js.map": "/minimalui/static/js/runtime~app.f6bafcf0.js.map",
-    "static/js/2.9c703e83.chunk.js": "/minimalui/static/js/2.9c703e83.chunk.js",
-    "static/js/2.9c703e83.chunk.js.map": "/minimalui/static/js/2.9c703e83.chunk.js.map",
+    "static/js/2.daaae8e7.chunk.js": "/minimalui/static/js/2.daaae8e7.chunk.js",
+    "static/js/2.daaae8e7.chunk.js.map": "/minimalui/static/js/2.daaae8e7.chunk.js.map",
     "fonts/AntDesign.ttf": "/minimalui/./fonts/AntDesign.ttf",
     "fonts/Entypo.ttf": "/minimalui/./fonts/Entypo.ttf",
     "fonts/Feather.ttf": "/minimalui/./fonts/Feather.ttf",
@@ -36,11 +36,27 @@
     "index.html": "/minimalui/index.html",
     "manifest.json": "/minimalui/manifest.json",
     "serve.json": "/minimalui/serve.json",
-    "static/js/2.9c703e83.chunk.js.LICENSE.txt": "/minimalui/static/js/2.9c703e83.chunk.js.LICENSE.txt"
+    "static/js/2.daaae8e7.chunk.js.LICENSE.txt": "/minimalui/static/js/2.daaae8e7.chunk.js.LICENSE.txt",
+    "static/media/app_bar.md": "/minimalui/static/media/app_bar.91c092aa.md",
+    "static/media/avatar.md": "/minimalui/static/media/avatar.93c559f0.md",
+    "static/media/button.md": "/minimalui/static/media/button.eb717f91.md",
+    "static/media/card.md": "/minimalui/static/media/card.8d7ee005.md",
+    "static/media/demo.md": "/minimalui/static/media/demo.df7356e7.md",
+    "static/media/fab.md": "/minimalui/static/media/fab.73c2bd54.md",
+    "static/media/get_started.md": "/minimalui/static/media/get_started.e7d88cf1.md",
+    "static/media/hooks.md": "/minimalui/static/media/hooks.f73cfb42.md",
+    "static/media/icon_button.md": "/minimalui/static/media/icon_button.5f6b8173.md",
+    "static/media/input.md": "/minimalui/static/media/input.ad396508.md",
+    "static/media/layout.md": "/minimalui/static/media/layout.8b5d1835.md",
+    "static/media/modal.md": "/minimalui/static/media/modal.a105f59e.md",
+    "static/media/responsive_list.md": "/minimalui/static/media/responsive_list.ef1fd0c2.md",
+    "static/media/switch.md": "/minimalui/static/media/switch.f5980766.md",
+    "static/media/text.md": "/minimalui/static/media/text.2a183738.md",
+    "static/media/theming.md": "/minimalui/static/media/theming.e44b0a4b.md"
   },
   "entrypoints": [
     "static/js/runtime~app.f6bafcf0.js",
-    "static/js/2.9c703e83.chunk.js",
-    "static/js/app.81ba3a49.chunk.js"
+    "static/js/2.daaae8e7.chunk.js",
+    "static/js/app.dc7d2d32.chunk.js"
   ]
 }
