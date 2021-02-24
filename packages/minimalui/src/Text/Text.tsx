@@ -34,7 +34,11 @@ export const Text: React.FunctionComponent<TextProps> = ({
   const theme = useTheme();
 
   const textStyle: StyleProp<TextStyle> = [
-    theme.typography.text,
+    {
+      color: theme.palette.text.primary,
+      fontFamily: theme.typography.fontRegular,
+      fontSize: theme.typography.fontSize,
+    },
     color !== "default" && { color: theme.palette[color] },
     style,
   ];

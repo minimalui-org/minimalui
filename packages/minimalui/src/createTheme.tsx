@@ -63,50 +63,53 @@ export const createTheme = (userTheme: DeepPartial<Theme> = {}): Theme => {
   const palette =
     userTheme?.palette?.type === "dark" ? darkPalette : lightPalette;
 
-  const spacing: Theme["spacing"] = (size = 1) => size * 8;
+  const spacing: Theme["spacing"] = (size = 1) =>
+    size * (userTheme.shape?.spacing || 8);
 
-  const defaultFontSize = userTheme.typography?.text?.fontSize || 14;
+  const fontBold = userTheme.typography?.fontBold || "NotoSansRegular";
+  const fontMedium = userTheme.typography?.fontMedium || "NotoSansMedium";
+  const fontRegular = userTheme.typography?.fontRegular || "NotoSansBold";
+  const fontSize = userTheme.typography?.fontSize || 14;
 
   const typography: Theme["typography"] = {
     button: {
       fontWeight: "600",
-      fontFamily: "NotoSansBold",
-      fontSize: defaultFontSize,
+      fontFamily: fontMedium,
+      fontSize,
     },
     caption: {
       color: palette.text.secondary,
-      fontFamily: "NotoSansRegular",
-      fontSize: defaultFontSize * 0.9,
-      lineHeight: defaultFontSize * 0.9 * 1.5,
+      fontFamily: fontRegular,
+      fontSize: fontSize * 0.9,
+      lineHeight: fontSize * 0.9 * 1.5,
     },
+    fontBold,
+    fontMedium,
+    fontRegular,
+    fontSize,
     headline: {
       color: palette.text.primary,
-      fontFamily: "NotoSansBold",
-      fontSize: defaultFontSize * 2.5,
-      lineHeight: defaultFontSize * 2.5 * 1.5,
+      fontFamily: fontBold,
+      fontSize: fontSize * 2.5,
+      lineHeight: fontSize * 2.5 * 1.5,
     },
     paragraph: {
       color: palette.text.secondary,
-      fontFamily: "NotoSansRegular",
-      fontSize: defaultFontSize,
-      lineHeight: defaultFontSize * 1.5,
+      fontFamily: fontRegular,
+      fontSize,
+      lineHeight: fontSize * 1.5,
     },
     subheading: {
       color: palette.text.primary,
-      fontFamily: "NotoSansBold",
-      fontSize: defaultFontSize * 1.1,
-      lineHeight: defaultFontSize * 1.1 * 1.5,
-    },
-    text: {
-      color: palette.text.primary,
-      fontFamily: "NotoSansRegular",
-      fontSize: defaultFontSize,
+      fontFamily: fontMedium,
+      fontSize: fontSize * 1.1,
+      lineHeight: fontSize * 1.1 * 1.5,
     },
     title: {
       color: palette.text.primary,
-      fontFamily: "NotoSansBold",
-      fontSize: defaultFontSize * 1.5,
-      lineHeight: defaultFontSize * 1.5 * 1.5,
+      fontFamily: fontMedium,
+      fontSize: fontSize * 1.5,
+      lineHeight: fontSize * 1.5 * 1.5,
     },
   };
 
@@ -117,6 +120,7 @@ export const createTheme = (userTheme: DeepPartial<Theme> = {}): Theme => {
       palette,
       shape: {
         borderRadius: 15,
+        spacing: 8,
       },
       spacing,
       typography,

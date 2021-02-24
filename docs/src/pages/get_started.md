@@ -25,7 +25,7 @@ Wrap your root component in MinimalProvider from `@minimalui/core`. If you have 
 This will usually be in the index.js file. 
 If you have an Expo project, you can do this inside the exported component in the App.js file.
 
-```typecsript
+```typescript
 import * as React from 'react';
 import { AppRegistry } from 'react-native';
 import { MinimalProvider } from '@minimalui/core';

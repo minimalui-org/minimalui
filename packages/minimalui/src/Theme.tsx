@@ -31,15 +31,20 @@ export type Theme = {
   };
   shape: {
     borderRadius: number;
+    spacing: number;
   };
   spacing: (size: number) => number;
   typography: {
+    fontBold: string;
+    fontMedium: string;
+    fontRegular: string;
+    fontSize: number;
+
     button: TextStyle;
     caption: TextStyle;
     headline: TextStyle;
     paragraph: TextStyle;
     subheading: TextStyle;
-    text: TextStyle;
     title: TextStyle;
   };
 };

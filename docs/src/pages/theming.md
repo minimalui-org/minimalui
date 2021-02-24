@@ -65,6 +65,58 @@ export default function ThemedComponent() {
 }
 ```
 
+## Default Theme
+```typescript
+const defaultTheme = {
+    breakpoint: {
+        xs: 0,
+        sm: 600,
+        md: 960,
+        lg: 1280,
+        xl: 1920
+    },
+    elevation: (depth: number) => {/* Helper returning the style corresponding to an elevation / shadow of ${depth} */},
+    palette: {
+        background: {
+            default: "#ffffff",
+            paper: "#f8f9fa"
+        },
+        divider: "#d3d3d3",
+        error: "#f44336",
+        info: "#2196f3",
+        primary: "#45afe8",
+        secondary: "#4bd1b8",
+        success: "#4caf50",
+        text: {
+            disabled: "rgba(0, 0, 0, 0.38)",
+            primary: "#000000",
+            secondary: "#545454"
+        },
+        touchable: "#eeeeee",
+        type: "light",
+        warning: "#ff9800"
+    },
+    shape: {
+        borderRadius: 15,
+        spacing: 8,
+    },
+    spacing: (size: number) => {/* Helper returning ${shape.spacing} * ${size} */}
+    typography: {
+        fontBold: "InterBold",
+        fontMedium: "InterMedium",
+        fontRegular: "InterRegular",
+        fontSize: 14,
+
+        button: {/* Additionnal Text Style */},
+        caption: {/* Additionnal Text Style */},
+        headline: {/* Additionnal Text Style */},
+        paragraph: {/* Additionnal Text Style */},
+        subheading: {/* Additionnal Text Style */},
+        title: {/* Additionnal Text Style */},
+    }
+}
+```
+
 ## Overriding the default style of components
 To override the default style of the exported components (for example remove the shadow / elevation from the Card component), you can use the "override" parameter of a theme. Use the component name as a key and add your style props. For certain components, you can have multiple keys for sub-components. Refer to their respective documentation page to learn more about it.
        
