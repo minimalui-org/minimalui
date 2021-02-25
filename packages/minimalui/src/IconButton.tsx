@@ -10,18 +10,35 @@ import {
 import Button, { ButtonProps } from "./Button";
 import useTheme from "./useTheme";
 
-export type IconButtonProps = ButtonProps & {
+/** Any other props supplied will be provided to the element [Button](/button). */
+export type IconButtonProps = {
   children: JSX.Element;
-  color?: string;
+  /** Size (height and width) of the button that will be forwarded to the icon. Default is *24*. */
   size?: number;
 };
 
-export const IconButton: React.FunctionComponent<IconButtonProps> = ({
-  children,
-  size = 24,
-  style,
-  ...props
-}) => {
+/**
+ * > IconButtonExample
+ *
+ * ```typescript
+ * import { Feather } from "@expo/vector-icons";
+ * import { IconButton } from "@minimalui/core";
+ * import * as React from "react";
+ *
+ * export const IconButtonExample: React.FunctionComponent = () => {
+ *   return (
+ *     <IconButton onPress={() => null}>
+ *         <Feather name="plus" />
+ *     </IconButton>
+ *   );
+ * };
+ *
+ * export default IconButtonExample;
+ * ```
+ */
+export const IconButton: React.FunctionComponent<
+  ButtonProps & IconButtonProps
+> = ({ children, size = 24, style, ...props }) => {
   const theme = useTheme();
 
   const iconButtonStyle: StyleProp<ViewStyle> = [

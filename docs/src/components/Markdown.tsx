@@ -60,6 +60,24 @@ export const Markdown: React.FunctionComponent = (props) => {
         <Spacer spacing={2} />
       </View>
     ),
+    heading3: (node, children) => (
+      <View key={node.key}>
+        <Spacer spacing={4} />
+        <Subheading style={{ fontFamily: "NotoSansBold" }}>
+          {children}
+        </Subheading>
+        <Spacer spacing={2} />
+      </View>
+    ),
+    heading4: (node, children) => (
+      <View key={node.key}>
+        <Spacer spacing={4} />
+        <Subheading style={{ fontFamily: "NotoSansBold" }}>
+          {children}
+        </Subheading>
+        <Spacer spacing={2} />
+      </View>
+    ),
     link: (node, children) => (
       <Link key={node.key} href={node.attributes.href}>
         {children}

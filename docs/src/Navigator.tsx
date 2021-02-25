@@ -15,43 +15,33 @@ import {
   DrawerContentComponentProps,
   DrawerContentScrollView,
 } from "@react-navigation/drawer";
-import { NavigationContainer } from "@react-navigation/native";
+import { LinkingOptions, NavigationContainer } from "@react-navigation/native";
+import { capitalCase } from "change-case";
 import React, { useEffect, useState } from "react";
 
 import * as Screens from "./screens";
 
 const RootStack = createDrawerNavigator();
 
-const linking = { enabled: true, prefixes: ["https://google.com"] };
+const linking: LinkingOptions = {
+  enabled: true,
+  prefixes: ["https://google.com"],
+  config: {
+    screens: {
+      Page: ":path?",
+    },
+  },
+};
 
 const Drawer: React.FunctionComponent<DrawerContentComponentProps> = (
   props
 ) => {
-  const pages = [
-    { title: "Get Started", file: "get_started" },
-    { title: "Demo", file: "demo" },
-    { title: "Theming", file: "theming" },
-    { title: "Hooks", file: "hooks" },
-    { title: "AppBar", file: "components/app_bar" },
-    { title: "Avatar", file: "components/avatar" },
-    { title: "Button", file: "components/button" },
-    { title: "Card", file: "components/card" },
-    { title: "Fab", file: "components/fab" },
-    { title: "IconButton", file: "components/icon_button" },
-    { title: "Input", file: "components/input" },
-    { title: "Layout", file: "components/layout" },
-    { title: "Modal", file: "components/modal" },
-    { title: "ResponsiveList", file: "components/responsive_list" },
-    { title: "Switch", file: "components/switch" },
-    { title: "Text", file: "components/text" },
-  ];
-
   return (
     <DrawerContentScrollView {...props}>
-      {pages.map((p) => (
+      {Screens.pages.map((p) => (
         <Button
-          key={p.file}
-          onPress={() => props.navigation.navigate("Page", p)}
+          key={p.path}
+          onPress={() => props.navigation.navigate("Page", { path: p.path })}
           style={{ alignItems: "flex-start", backgroundColor: "transparent" }}
         >
           {p.title}
@@ -140,17 +130,23 @@ export const Navigator: React.FunctionComponent<NavigatorProps> = ({
                 navigation,
                 options: { title },
               },
-              route: { name },
+              route: { name, params },
             },
           }) => (
             <Container style={{ flexDirection: "row", alignItems: "center" }}>
               {!isLargeScreen && (
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 <IconButton onPress={(navigation as any).toggleDrawer}>
                   <Feather name="menu" />
                 </IconButton>
               )}
               <Spacer />
-              <Title style={{ flex: 1 }}>{/* title || name */}</Title>
+              <Title style={{ flex: 1 }}>
+                {
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  capitalCase((params as any)?.path) || title || name
+                }
+              </Title>
               <Feather
                 color={theme.palette.text.primary}
                 name="sun"

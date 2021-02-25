@@ -1,3 +1,7 @@
+/**
+ * @module Button
+ * @category Button
+ */
 import * as Color from "color";
 import { LinearGradient } from "expo-linear-gradient";
 import * as React from "react";
@@ -20,8 +24,10 @@ import pick, {
   TextStyleKeys,
 } from "./utilities/pick";
 
-export type ButtonProps = Omit<PressableProps, "children" | "style"> & {
+/** Any other props supplied will be provided to the root element [Pressable](https://reactnative.dev/docs/pressable). */
+export type ButtonProps = {
   children: ((textStyle: TextStyle[]) => React.ReactNode) | React.ReactNode;
+  /** Color of the button. Default is *default* which is the touchable color. */
   color?:
     | "default"
     | "primary"
@@ -30,13 +36,39 @@ export type ButtonProps = Omit<PressableProps, "children" | "style"> & {
     | "info"
     | "success"
     | "warning";
+  /** Elevation (shadow) of the button.  */
   elevation?: number;
+  /** If the button should take all available horizontal space.  */
   fullWidth?: boolean;
+  /** Styles to be applied to the button. Text related properties will be automatically forwarded to the Text component. */
   style?: TextStyle & ViewStyle;
+  /** Variant of the button. Default is *flat*. */
   variant?: "flat" | "contained" | "outlined" | "gradient";
 };
 
-export const Button: React.FunctionComponent<ButtonProps> = (props) => {
+/**
+ * ## Text Button
+ *
+ * > ButtonExample
+ *
+ * ```typescript
+ * import { Button } from "@minimalui/core";
+ * import * as React from "react";
+ *
+ * export const ButtonExample: React.FunctionComponent = () => {
+ *   return (
+ *     <Button onPress={() => null}>
+ *         I am a button
+ *     </Button>
+ *   );
+ * };
+ *
+ * export default ButtonExample;
+ * ```
+ */
+export const Button: React.FunctionComponent<
+  Omit<PressableProps, "children" | "style"> & ButtonProps
+> = (props) => {
   const {
     color = "default",
     elevation,

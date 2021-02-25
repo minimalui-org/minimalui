@@ -28,7 +28,8 @@
   "scripts": {
     "start": "tsc -w",
     "build": "tsc",
-    "deploy": "yarn build && yarn publish"
+    "deploy": "yarn build && yarn publish",
+    "doc": "rm -rf ../../docs/src/pages/minimalui/* && typedoc --plugin typedoc-plugin-markdown --allReflectionsHaveOwnDocument --hideInPageTOC --hideBreadcrumbs --readme none --gitRevision main --entryPoints ./src/index.ts --out ../../docs/src/pages/minimalui"
   },
   "dependencies": {
     "color": "^3.1.3",

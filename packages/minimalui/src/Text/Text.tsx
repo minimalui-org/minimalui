@@ -6,10 +6,11 @@ import {
   TextStyle,
 } from "react-native";
 
-import Spacer from "../Spacer";
 import useTheme from "../useTheme";
 
+/** Any other props supplied will be provided to the element [Text](https://reactnative.dev/docs/text). */
 export type TextProps = LegacyTextProps & {
+  /** Color of the text. Default is *default* which is either `theme.palette.text.primary` or `theme.palette.text.secondary` depending of the component. */
   color?:
     | "default"
     | "primary"
@@ -18,16 +19,39 @@ export type TextProps = LegacyTextProps & {
     | "info"
     | "success"
     | "warning";
-  gutter?: true | number;
-  gutterBottom?: true | number;
-  gutterTop?: true | number;
 };
 
+/**
+ * > TextExample
+ *
+ *```typescript
+ *import {
+ *  Caption,
+ *  Headline,
+ *  Paragraph,
+ *  Subheading,
+ *  Title,
+ *} from "@minimalui/core";
+ *import * as React from "react";
+ *
+ *export const TextExample: React.FunctionComponent = () => {
+ *  return (
+ *    <>
+ *      <Headline>Headline</Headline>
+ *      <Title>Title</Title>
+ *      <Subheading>Subheading</Subheading>
+ *      <Paragraph>Paragraph</Paragraph>
+ *      <Caption>Caption</Caption>
+ *    </>
+ *  );
+ *};
+ *
+ *export default TextExample;
+ *
+ *```
+ */
 export const Text: React.FunctionComponent<TextProps> = ({
   color = "default",
-  gutter,
-  gutterBottom,
-  gutterTop,
   style,
   ...props
 }) => {
@@ -43,17 +67,7 @@ export const Text: React.FunctionComponent<TextProps> = ({
     style,
   ];
 
-  return (
-    <>
-      {(gutterTop || gutter) && (
-        <Spacer spacing={+(gutterTop || gutter || true)} />
-      )}
-      <LegacyText {...props} style={textStyle} />
-      {(gutterBottom || gutter) && (
-        <Spacer spacing={+(gutterBottom || gutter || true)} />
-      )}
-    </>
-  );
+  return <LegacyText {...props} style={textStyle} />;
 };
 
 export default Text;

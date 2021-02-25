@@ -10,12 +10,28 @@ import {
 
 import useTheme from "./useTheme";
 
-type AvatarProps = ImageProps & {
+/** Any other props supplied will be provided to the element [Image](https://reactnative.dev/docs/image). */
+export type AvatarProps = {
+  /** Size of the image. Default is *64*. */
   size?: number;
   style?: StyleProp<ViewStyle>;
 };
 
-export const Avatar: React.FunctionComponent<AvatarProps> = ({
+/**
+ * > AvatarExample
+ *
+ * ```typescript
+ * import { Avatar } from "@minimalui/core";
+ * import * as React from "react";
+ *
+ * export const AvatarExample = () => {
+ *   return <Avatar source={{ uri: "https://i.pravatar.cc/300" }} />;
+ * };
+ *
+ * export default AvatarExample;
+ * ```
+ */
+export const Avatar: React.FunctionComponent<ImageProps & AvatarProps> = ({
   size = 64,
   source,
   style,

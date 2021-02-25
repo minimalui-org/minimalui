@@ -6,20 +6,23 @@ import { Breakpoint } from "./Theme";
 import useDimensions from "./useDimensions";
 import useScroll from "./useScroll";
 
-export type ResponsiveListProps<T> = Omit<FlatListProps<T>, "renderItem"> & {
+/** Any other props supplied will be provided to the root element [FlatList](https://reactnative.dev/docs/flatlist). */
+export type ResponsiveListProps = {
   breakpoints: {
     [key in Breakpoint]?: number;
   };
-  renderItem: NonNullable<FlatListProps<T>["renderItem"]>;
+  renderItem: NonNullable<FlatListProps<any>["renderItem"]>;
 };
 
-export function ResponsiveList<T>({
+export const ResponsiveList: React.FunctionComponent<
+  Omit<FlatListProps<any>, "renderItem"> & ResponsiveListProps
+> = ({
   breakpoints,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   keyExtractor = (i: any) => i.key,
   renderItem,
   ...props
-}: React.PropsWithChildren<ResponsiveListProps<T>>): JSX.Element {
+}) => {
   const { width } = useDimensions();
   const { x, y } = useScroll();
   const theme = useTheme();
@@ -68,6 +71,6 @@ export function ResponsiveList<T>({
       {...props}
     />
   );
-}
+};
 
 export default ResponsiveList;

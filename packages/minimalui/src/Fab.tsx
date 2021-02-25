@@ -1,18 +1,38 @@
 import * as React from "react";
 import { StyleProp, View, ViewStyle } from "react-native";
 
+import { ButtonProps } from "./Button";
 import IconButton, { IconButtonProps } from "./IconButton";
 import useTheme from "./useTheme";
 
-export type FabProps = IconButtonProps & {
+/** Any other props supplied will be provided to the element [IconButton](/icon_button). */
+export type FabProps = {
+  /** Position on the screen where the Fab should be aligned. Default is *center*. */
   align?: "center" | "left" | "right";
 };
 
-export const Fab: React.FunctionComponent<FabProps> = ({
-  align = "center",
-  style,
-  ...props
-}) => {
+/**
+ * > FabExample
+ *
+ * ```typescript
+ * import { Feather } from "@expo/vector-icons";
+ * import { Fab } from "@minimalui/core";
+ * import * as React from "react";
+ *
+ * export const FabExample: React.FunctionComponent = () => {
+ *   return (
+ *     <Fab onPress={() => null}>
+ *         <Feather name="plus" />
+ *     </Fab>
+ *   );
+ * };
+ *
+ * export default FabExample;
+ * ```
+ */
+export const Fab: React.FunctionComponent<
+  ButtonProps & IconButtonProps & FabProps
+> = ({ align = "center", style, ...props }) => {
   const theme = useTheme();
 
   const fabStyle: StyleProp<ViewStyle> = [

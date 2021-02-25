@@ -3,7 +3,24 @@ import { Platform, TextInput, TextInputProps } from "react-native";
 
 import useTheme from "./useTheme";
 
-export const Input: React.FunctionComponent<TextInputProps> = ({
+/** Any other props supplied will be provided to the element [TextInput](https://reactnative.dev/docs/textinput). */
+export type InputProps = Record<string, unknown>;
+
+/**
+ * > InputExample
+ *
+ * ```typescript
+ * import { Input } from "@minimalui/core";
+ * import * as React from "react";
+ *
+ * export const InputExample = () => {
+ *   return <Input />;
+ * };
+ *
+ * export default InputExample;
+ * ```
+ */
+export const Input: React.FunctionComponent<TextInputProps & InputProps> = ({
   style,
   ...props
 }) => {

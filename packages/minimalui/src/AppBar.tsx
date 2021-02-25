@@ -10,13 +10,14 @@ import {
 import useScroll from "./useScroll";
 import useTheme from "./useTheme";
 
-type AppBarProps = ViewProps & {
+/** Any other props supplied will be provided to the element [View](https://reactnative.dev/docs/view). */
+export type AppBarProps = {
   left?: React.ReactNode;
   title?: string;
   right?: React.ReactNode;
 };
 
-export const AppBar: React.FunctionComponent<AppBarProps> = ({
+export const AppBar: React.FunctionComponent<ViewProps & AppBarProps> = ({
   left,
   title,
   right,
