@@ -1,7 +1,7 @@
 {
   "files": {
-    "app.js": "/minimalui/static/js/app.1564db4e.chunk.js",
-    "app.js.map": "/minimalui/static/js/app.1564db4e.chunk.js.map",
+    "app.js": "/minimalui/static/js/app.6989762c.chunk.js",
+    "app.js.map": "/minimalui/static/js/app.6989762c.chunk.js.map",
     "runtime~app.js": "/minimalui/static/js/runtime~app.f6bafcf0.js",
     "runtime~app.js.map": "/minimalui/static/js/runtime~app.f6bafcf0.js.map",
     "static/js/2.d86fa08b.chunk.js": "/minimalui/static/js/2.d86fa08b.chunk.js",
@@ -131,6 +131,6 @@
   "entrypoints": [
     "static/js/runtime~app.f6bafcf0.js",
     "static/js/2.d86fa08b.chunk.js",
-    "static/js/app.1564db4e.chunk.js"
+    "static/js/app.6989762c.chunk.js"
   ]
 }
