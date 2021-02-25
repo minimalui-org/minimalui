@@ -25,10 +25,10 @@ const RootStack = createDrawerNavigator();
 
 const linking: LinkingOptions = {
   enabled: true,
-  prefixes: ["https://google.com"],
+  prefixes: ["https://minimalui-org.github.io/"],
   config: {
     screens: {
-      Page: ":path?",
+      Page: "minimalui/:path?",
     },
   },
 };
@@ -144,7 +144,10 @@ export const Navigator: React.FunctionComponent<NavigatorProps> = ({
               <Title style={{ flex: 1 }}>
                 {
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  capitalCase((params as any)?.path) || title || name
+                  ((params as any)?.path &&
+                    capitalCase((params as any)?.path)) ||
+                    title ||
+                    name
                 }
               </Title>
               <Feather

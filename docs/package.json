@@ -8,7 +8,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "deploy": "gh-pages -d web-build -r git@github.com:minimalui-org/minimalui.git",
-    "predeploy": "expo build:web",
+    "predeploy": "rm -rf ./web-build && expo build:web && mv ./web-build/index.html ./web-build/404.html",
     "cp-package": "cp -R ../packages/minimalui/dist ./node_modules/@minimalui/core",
     "watch": "yarn run cp-package && onchange '../packages/minimalui/dist/**/*.js' -- yarn run cp-package"
   },
